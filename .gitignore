@@ -1,0 +1,13 @@
+# Python sanal ortam klasörü
+venv/
+
+# __pycache__ klasörleri
+__pycache__/
+
+# Günlük ve temp dosyaları
+*.log
+*.tmp
+
+# Hassas bilgiler
+config.py
+.env
