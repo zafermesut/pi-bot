@@ -1,18 +1,18 @@
 import os
 from aiogram import types
-from config import CHAT_ID, GITHUB_REPO
+from config import USER_ID, GITHUB_REPO
 from strings import COMMANDS
 import subprocess
 import requests
 
 
 async def restart(message: types.Message):
-    if message.from_user.id == CHAT_ID:
+    if message.from_user.id == USER_ID:
         await message.answer("📢 Cihaz yeniden başlatılıyor...")
         os.system("sudo reboot")
 
 async def shutdown(message: types.Message):
-    if message.from_user.id == CHAT_ID:
+    if message.from_user.id == USER_ID:
         await message.answer("⚠ Cihaz kapanıyor...")
         os.system("sudo shutdown now")
 
