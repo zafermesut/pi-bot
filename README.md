@@ -26,7 +26,7 @@ Projede çalışabilmesi için `config.py` dosyasını oluşturup aşağıdaki g
 
 ```python
 TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"  # Telegram Bot Token
-GROUP_ID = -100XXXXXXXXXX  # Telegram Grup ID
+USER_ID = "XXXXXXXXXX"  # User ID
 ```
 
 ### 3️⃣ Botu Çalıştırma
