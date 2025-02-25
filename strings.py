@@ -12,6 +12,4 @@ COMMANDS = """
 /shutdown → Raspberry Pi’yi kapatır  
 
 /cpu_temp → Raspberry Pi’nin CPU sıcaklığını döndürür
-
-/help → Tüm komutları ve açıklamalarını gösterir  
 """

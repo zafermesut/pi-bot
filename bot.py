@@ -16,7 +16,6 @@ dp.register_message_handler(shutdown, commands=['shutdown'])
 dp.register_message_handler(status, commands=['status'])
 dp.register_message_handler(check_update, commands=['check_update'])
 dp.register_message_handler(update_code, commands=['update'])
-dp.register_message_handler(help_command, commands=['help'])
 dp.register_message_handler(get_cpu_temp, commands=['cpu_temp'])
 
 async def on_startup(_):

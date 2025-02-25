@@ -14,7 +14,7 @@ async def restart(message: types.Message):
 async def shutdown(message: types.Message):
     if message.from_user.id == USER_ID:
         await message.answer("⚠ Cihaz kapanıyor...")
-        os.system("sudo shutdown now")
+        os.system("sudo shutdown -h now")
 
 async def status(message: types.Message):
     await message.answer("✅ Raspberry Pi aktif ve çalışıyor!")
@@ -44,16 +44,12 @@ async def update_code(message: types.Message):
         
         subprocess.run(["git", "pull"], check=True)
         
-        await message.answer("✅ Güncelleme tamamlandı! Bot yeniden başlatılıyor...")
+        await message.answer("✅ Güncelleme tamamlandı! Raspberry Pi yeniden başlatılıyor...")
         
         subprocess.run(["sudo", "reboot"])
     
     except Exception as e:
         await message.answer(f"❌ Güncelleme sırasında hata oluştu: {str(e)}")
-
-async def help_command(message: types.Message):
-    """Tüm komutları listeleyen mesaj döndürür"""
-    await message.answer(COMMANDS, parse_mode="Markdown")
 
 async def get_cpu_temp(message: types.Message):
     """Raspberry Pi'nin CPU sıcaklığını döndürür"""
