@@ -1,6 +1,7 @@
 import os
 from aiogram import types
-from config import CHAT_ID, GITHUB_REPO, COMMANDS
+from config import CHAT_ID, GITHUB_REPO
+from strings import COMMANDS
 import subprocess
 import requests
 

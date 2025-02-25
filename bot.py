@@ -2,7 +2,8 @@ import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.types import Message
 from aiogram.utils import executor
-from config import TOKEN, CHAT_ID, COMMANDS
+from config import TOKEN, CHAT_ID
+from strings import COMMANDS
 from commands import restart, shutdown, status, check_update, update_code, help_command, get_cpu_temp
 
 
