@@ -24,11 +24,9 @@ async def check_update(message: types.Message):
 
         local_commit = subprocess.check_output(["git", "rev-parse", "HEAD"]).decode("utf-8").strip()
 
-
         url = f"https://api.github.com/repos/{GITHUB_REPO}/commits/main"
         response = requests.get(url)
         latest_commit = response.json()["sha"]
-
 
         if local_commit == latest_commit:
             await message.answer("✅ Botunuz güncel!")
@@ -43,12 +41,10 @@ async def update_code(message: types.Message):
     try:
         await message.answer("🚀 Güncelleme indiriliyor...")
         
-        # Git pull yap
         subprocess.run(["git", "pull"], check=True)
         
         await message.answer("✅ Güncelleme tamamlandı! Bot yeniden başlatılıyor...")
         
-        # Botu yeniden başlat
         subprocess.run(["sudo", "reboot"])
     
     except Exception as e:
@@ -57,3 +53,15 @@ async def update_code(message: types.Message):
 async def help_command(message: types.Message):
     """Tüm komutları listeleyen mesaj döndürür"""
     await message.answer(COMMANDS, parse_mode="Markdown")
+
+async def get_cpu_temp(message: types.Message):
+    """Raspberry Pi'nin CPU sıcaklığını döndürür"""
+    try:
+
+        temp_output = subprocess.check_output(["vcgencmd", "measure_temp"]).decode("utf-8")
+        temp = temp_output.replace("temp=", "🌡 CPU Sıcaklığı: ").strip()
+
+        await message.answer(temp)
+
+    except Exception as e:
+        await message.answer(f"❌ Sıcaklık okunamadı: {str(e)}")
