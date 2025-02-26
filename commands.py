@@ -1,20 +1,17 @@
 import os
 from aiogram import types
-from config import USER_ID, GITHUB_REPO
-from strings import COMMANDS
+from config import GITHUB_REPO
 import subprocess
 import requests
 
 
 async def restart(message: types.Message):
-    if message.from_user.id == USER_ID:
-        await message.answer("📢 Cihaz yeniden başlatılıyor...")
-        os.system("sudo reboot")
+    await message.answer("📢 Cihaz yeniden başlatılıyor...")
+    os.system("sudo reboot")
 
 async def shutdown(message: types.Message):
-    if message.from_user.id == USER_ID:
-        await message.answer("⚠ Cihaz kapanıyor...")
-        os.system("sudo shutdown -h now")
+    await message.answer("⚠ Cihaz kapanıyor...")
+    os.system("sudo shutdown -h now")
 
 async def status(message: types.Message):
     await message.answer("✅ Raspberry Pi aktif ve çalışıyor!")
