@@ -4,7 +4,7 @@ from aiogram.types import Message
 from aiogram.utils import executor
 from config import TOKEN, USER_ID
 from strings import COMMANDS
-from commands import restart, shutdown, status, check_update, update_code, help_command, get_cpu_temp
+from commands import restart, shutdown, status, check_update, update_code, get_cpu_temp
 
 
 bot = Bot(token=TOKEN)
